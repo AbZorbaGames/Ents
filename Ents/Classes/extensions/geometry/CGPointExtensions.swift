@@ -46,7 +46,7 @@ public func ^ (lhs: Float, rhs: Float) -> CGPoint {
 public extension CGPoint {
 
     /// returns a new point with floored `x` and `y` of the receiver
-    public var floored: CGPoint {
+    var floored: CGPoint {
 		var point = self
 		point.x = CoreGraphics.floor(self.x)
 		point.y = CoreGraphics.floor(self.y)
@@ -55,12 +55,12 @@ public extension CGPoint {
 
 
     /// floors `x` and `y`
-    public mutating func floor() {
+    mutating func floor() {
 		self = self.floored
     }
 
     /// returns a new point with ceiled `x` and `y` of the receiver
-    public var ceiled : CGPoint {
+    var ceiled : CGPoint {
 		var point = self
 		point.x = CoreGraphics.ceil(self.x)
 		point.y = CoreGraphics.ceil(self.y)
@@ -68,7 +68,7 @@ public extension CGPoint {
     }
 
     /// ceils `x` and `y`
-    public mutating func ceil() {
+    mutating func ceil() {
 		self = self.ceiled
     }
 }
@@ -76,7 +76,7 @@ public extension CGPoint {
 public extension CGPoint {
     
     /// converts this `CGPoint` instance to a `NSValue` instance.
-	public var asValue: NSValue {
+	var asValue: NSValue {
 		return NSValue(cgPoint: self)
 	}
 }
@@ -84,37 +84,37 @@ public extension CGPoint {
 public extension CGPoint {
     
     /// moves the receiver by the specified amounts on the x an y axis
-    public mutating func translate(dx : CGFloat, dy : CGFloat) {
+    mutating func translate(dx : CGFloat, dy : CGFloat) {
         self.translate(horizontally: dx)
         self.translate(vertically: dy)
     }
 
     /// creates a point translated by the specified amounts on the x an y axis
-    public func translatedBy(dx : CGFloat, dy : CGFloat) -> CGPoint {
+    func translatedBy(dx : CGFloat, dy : CGFloat) -> CGPoint {
         var point = self;
         point.translate(dx: dx, dy: dy)
         return point
     }
 
     /// moves the receiver by the specified amounts on y axis
-    public mutating func translate(vertically dy: CGFloat) {
+    mutating func translate(vertically dy: CGFloat) {
         self.y += dy
     }
 
     /// moves the receiver by the specified amounts on x axis
-    public mutating func translate(horizontally dx: CGFloat) {
+    mutating func translate(horizontally dx: CGFloat) {
         self.x += dx
     }
 
     /// creates a point translated by the specified amounts on the y axis
-    public func translated(vertically dy: CGFloat)  -> CGPoint {
+    func translated(vertically dy: CGFloat)  -> CGPoint {
         var point = self
         point.translate(vertically: dy)
         return point
     }
 
     /// creates a point translated by the specified amounts on the x axis
-    public func translated(horizontally dx: CGFloat) -> CGPoint {
+    func translated(horizontally dx: CGFloat) -> CGPoint {
         var point = self
         point.translate(horizontally: dx)
         return point
@@ -124,7 +124,7 @@ public extension CGPoint {
 public extension CGPoint {
     
     /// creates a point translated by the given offest
-    public func offseted(_ offset: UIOffset) -> CGPoint {
+    func offseted(_ offset: UIOffset) -> CGPoint {
         return self.translatedBy(dx: offset.horizontal, dy: offset.vertical)
     }
 }
@@ -134,49 +134,49 @@ public extension CGPoint {
     /// returns a Boolean indicating wether the receiver is on the left of the 
     /// passed in argument
     /// - parameter other: another point
-    public func left(of other: CGPoint) -> Bool {
+    func left(of other: CGPoint) -> Bool {
         return self.x.isLessThan(other.x)
     }
 
     /// returns a Boolean indicating wether the receiver is on the rigth of the
     /// passed in argument
     /// - parameter other: another point
-    public func right(of other: CGPoint) -> Bool {
+    func right(of other: CGPoint) -> Bool {
         return self.x.isGreaterThan(other.x)
     }
 
     /// returns a Boolean indicating wether the receiver is above the
     /// passed in argument
     /// - parameter other: another point
-    public func above(of other: CGPoint) -> Bool {
+    func above(of other: CGPoint) -> Bool {
         return self.y.isLessThan(other.y)
     }
 
     /// returns a Boolean indicating wether the receiver is below the
     /// passed in argument
     /// - parameter other: another point
-    public func below(of other: CGPoint) -> Bool {
+    func below(of other: CGPoint) -> Bool {
         return self.y.isGreaterThan(other.y)
     }
 
     /// returns a Boolean indicating wether the receiver is on the same 
     /// Longitude as the passed in argument
     /// - parameter other: another point
-    public func sameVerticalAxe(with other: CGPoint) -> Bool {
+    func sameVerticalAxe(with other: CGPoint) -> Bool {
         return self.x.isEqual(to: other.x)
     }
 
     /// returns a Boolean indicating wether the receiver is on the same
     /// latitude as the passed in argument
     /// - parameter other: another point
-    public func sameHorizontalAxe(with other: CGPoint) -> Bool {
+    func sameHorizontalAxe(with other: CGPoint) -> Bool {
         return self.y.isEqual(to: other.y)
     }
 
     /// a 8-point direction used for comparing positions of CGPoint instances.
     /// - note: it's is assumed that the origin of the coordinate system is at 
     /// the upper left.
-    public enum Direction {
+    enum Direction {
         case north /// the point is above
         case west  /// the point is left
         case east  /// the point is right
@@ -193,7 +193,7 @@ public extension CGPoint {
     /// returns an approximate direcation of the receiver according to the 
     /// argument passed in
     /// - parameter other: another point
-    public func direction(comparedTo other: CGPoint) -> CGPoint.Direction {
+    func direction(comparedTo other: CGPoint) -> CGPoint.Direction {
         if self == other { return CGPoint.Direction.none }
 
         if self.left(of: other).and(self.above(of: other)) {
@@ -238,7 +238,7 @@ public extension CGPoint {
     
     /// creates a CGPoint with the given `x` and the same `y` as the receiver
     /// - parameter x: the new `x`.
-    public func with(x: CGFloat) -> CGPoint {
+    func with(x: CGFloat) -> CGPoint {
         var point = self
         point.x = x
         return point
@@ -246,7 +246,7 @@ public extension CGPoint {
 
     /// creates a CGPoint with the given `y` and the same `x` as the receiver
     /// - parameter y: the new `y`.
-    public func with(y: CGFloat) -> CGPoint {
+    func with(y: CGFloat) -> CGPoint {
         var point = self
         point.y = y
         return point
@@ -257,7 +257,7 @@ public extension CGPoint {
     
     /// apply a transformation to a CGPoint
     /// - parameter t: a transformation
-    public mutating func apply(_ t: CGAffineTransform) {
+    mutating func apply(_ t: CGAffineTransform) {
         self = self.applying(t)
     }
 }
