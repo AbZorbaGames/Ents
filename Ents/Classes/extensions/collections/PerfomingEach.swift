@@ -42,6 +42,7 @@ public struct LazyPerformingEachCollection<Base: Collection>
     public typealias Element = Base.Iterator.Element
     public typealias SubSequence = Base.SubSequence
     public typealias Index = Base.Index
+    public typealias indices = Base.Indices
     
     let base: Base
     let perform: (Element) -> Void
@@ -60,9 +61,13 @@ public struct LazyPerformingEachCollection<Base: Collection>
     
     public var count: Int { return self.base.count }
     public subscript(position: Index) -> Element { return self.base[position] }
+    public subscript(bounds: Range<Base.Index>) -> Base.SubSequence {
+        return self.base[bounds]
+    }
     public var startIndex: Index { return self.base.startIndex }
     public var endIndex: Index { return self.base.endIndex }
     public func index(after i: Index) -> Index { return self.base.index(after: i) }
+    
 }
 
 public extension LazyCollectionProtocol {
