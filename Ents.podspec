@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Ents'
-  s.version          = '3.1.8'
+  s.version          = '3.1.9'
   s.summary          = 'A collection of handy extensions for Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -21,14 +21,14 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/averello/Ents'
+  s.homepage         = 'https://github.com/AbZorbaGames/Ents'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Georges Boumis' => 'developer.george.boumis@gmail.com' }
-  s.source           = { :git => 'https://github.com/averello/Ents.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/AbZorbaGames/Ents', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'Ents/Classes/**/*'
 

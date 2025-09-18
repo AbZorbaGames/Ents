@@ -1,9 +1,9 @@
 {
   "name": "Ents",
-  "version": "3.1.7",
+  "version": "3.1.9",
   "summary": "A collection of handy extensions for Swift.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/averello/Ents",
+  "homepage": "https://github.com/AbZorbaGames/Ents",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,16 +12,16 @@
     "Georges Boumis": "developer.george.boumis@gmail.com"
   },
   "source": {
-    "git": "https://github.com/averello/Ents.git",
-    "tag": "3.1.7"
+    "git": "https://github.com/AbZorbaGames/Ents",
+    "tag": "3.1.9"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "13.0"
   },
   "source_files": "Ents/Classes/**/*",
   "xcconfig": {
     "OTHER_SWIFT_FLAGS[config=Debug]": "-DDEBUG",
     "SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug]": "DEBUG",
-    "SWIFT_VERSION": "4.2"
+    "SWIFT_VERSION": "5.0"
   }
 }
